@@ -45,21 +45,22 @@ const FrameMotion = ({ onComplete }: { onComplete: () => void }) => {
               animate={{ pathLength: 1 }}
               transition={{ duration: 0.8 }}
             />
-            <motion.g
-              animate={phase >= 3 ? { rotate: 360 } : {}}
-              transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-              style={{ originX: "280px", originY: "370px" }}
-            >
-              {[0, 72, 144, 216, 288].map((angle) => (
-                <circle
-                  key={angle}
-                  cx={280 + Math.cos((angle * Math.PI) / 180) * 15}
-                  cy={370 + Math.sin((angle * Math.PI) / 180) * 15}
-                  r="3"
-                  fill="hsl(var(--ink))"
-                />
-              ))}
-            </motion.g>
+            <g transform="translate(280, 370)">
+              <motion.g
+                animate={phase >= 3 ? { rotate: 360 } : {}}
+                transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+              >
+                {[0, 72, 144, 216, 288].map((angle) => (
+                  <circle
+                    key={angle}
+                    cx={Math.cos((angle * Math.PI) / 180) * 15}
+                    cy={Math.sin((angle * Math.PI) / 180) * 15}
+                    r="3"
+                    fill="hsl(var(--ink))"
+                  />
+                ))}
+              </motion.g>
+            </g>
 
             {/* Front wheel */}
             <motion.circle
@@ -71,21 +72,22 @@ const FrameMotion = ({ onComplete }: { onComplete: () => void }) => {
               animate={{ pathLength: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             />
-            <motion.g
-              animate={phase >= 3 ? { rotate: 360 } : {}}
-              transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-              style={{ originX: "500px", originY: "370px" }}
-            >
-              {[0, 72, 144, 216, 288].map((angle) => (
-                <circle
-                  key={angle}
-                  cx={500 + Math.cos((angle * Math.PI) / 180) * 15}
-                  cy={370 + Math.sin((angle * Math.PI) / 180) * 15}
-                  r="3"
-                  fill="hsl(var(--ink))"
-                />
-              ))}
-            </motion.g>
+            <g transform="translate(500, 370)">
+              <motion.g
+                animate={phase >= 3 ? { rotate: 360 } : {}}
+                transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+              >
+                {[0, 72, 144, 216, 288].map((angle) => (
+                  <circle
+                    key={angle}
+                    cx={Math.cos((angle * Math.PI) / 180) * 15}
+                    cy={Math.sin((angle * Math.PI) / 180) * 15}
+                    r="3"
+                    fill="hsl(var(--ink))"
+                  />
+                ))}
+              </motion.g>
+            </g>
           </motion.g>
         )}
 
